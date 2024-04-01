@@ -71,6 +71,18 @@
 			</tbody>
 		</table>
 	</section>
+
+	<section>
+		<p>
+			※通信を行わないので<a
+				href="https://support.google.com/chrome/answer/9658361?hl=ja&co=GENIE.Platform%3DDesktop&oco=1"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				アプリとしてインストール
+			</a>するとオフラインでも使えます。
+		</p>
+	</section>
 </main>
 
 <footer>
