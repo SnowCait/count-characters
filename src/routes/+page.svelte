@@ -1,5 +1,8 @@
 <script lang="ts">
+	import twitter from 'twitter-text';
 	let text = '';
+
+	$: tweet = twitter.parseTweet(text);
 </script>
 
 <main>
@@ -38,9 +41,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td>原稿用紙換算(400x？枚)</td>
+					<td>原稿用紙（400 x ？枚）</td>
 					<td>
 						<input type="text" value={Math.ceil(text.length / 400)} />
+					</td>
+				</tr>
+				<tr>
+					<td>X（Twitter）</td>
+					<td>
+						<input type="text" value={Math.ceil(tweet.weightedLength / 2)} />
 					</td>
 				</tr>
 			</tbody>
