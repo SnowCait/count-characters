@@ -1,0 +1,14 @@
+{
+	"name": "文字数カウント",
+	"short_name": "文字数カウント",
+	"start_url": ".",
+	"display": "standalone",
+	"background_color": "#fff",
+	"icons": [
+		{
+			"src": "icon.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		}
+	]
+}
