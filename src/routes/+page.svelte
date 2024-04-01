@@ -1,6 +1,11 @@
 <script lang="ts">
 	import twitter from 'twitter-text';
+	import split from 'graphemesplit';
+
 	let text = '';
+
+	$: characters = split(text);
+	$: console.debug(characters, [...text], text.length);
 
 	$: tweet = twitter.parseTweet(text);
 </script>
@@ -20,15 +25,15 @@
 			<tbody>
 				<tr>
 					<td>文字数（スペース込み）</td>
-					<td><input type="text" value={text.replace('\n', '').length} /></td>
+					<td><input type="text" value={characters.filter((x) => x !== '\n').length} /></td>
 				</tr>
 				<tr>
 					<td>文字数（スペース無視）</td>
-					<td><input type="text" value={text.replace(/\s|　/g, '').length} /></td>
+					<td><input type="text" value={characters.filter((x) => !/\s|　/.test(x)).length} /></td>
 				</tr>
 				<tr>
 					<td>行数</td>
-					<td><input type="text" value={(text.match(/\n/g)?.length ?? 0) + 1} /></td>
+					<td><input type="text" value={characters.filter((x) => x === '\n').length + 1} /></td>
 				</tr>
 				<tr>
 					<td>段落数</td>
@@ -43,7 +48,10 @@
 				<tr>
 					<td>原稿用紙（400 x ？枚）</td>
 					<td>
-						<input type="text" value={Math.ceil(text.length / 400)} />
+						<input
+							type="text"
+							value={Math.ceil(characters.filter((x) => x !== '\n').length / 400)}
+						/>
 					</td>
 				</tr>
 				<tr>
