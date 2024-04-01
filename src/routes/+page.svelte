@@ -37,6 +37,12 @@
 						/>
 					</td>
 				</tr>
+				<tr>
+					<td>原稿用紙換算(400x？枚)</td>
+					<td>
+						<input type="text" value={Math.ceil(text.length / 400)} />
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</section>
